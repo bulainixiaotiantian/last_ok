@@ -8,9 +8,9 @@
 		<span class="head_icon"><img src="../images/home_button_filter_default.png"></span>
 		<span id="order"  class="head_icon"><img src="../images/home_button_sort_default.png"></span>
 	</div>
-<!---------------gif加载动画----------------->
 
 <!---------------侧边筛选栏----------------->
+	<div class="motai"></div>
 	<div class="aside">
 		<div class="rever"><img src="../images/home_button_close_default.png"></div>
 		<h3>性别</h3>
@@ -35,20 +35,24 @@
 </ul>
 
 	<script>	
-
-	
 </script>
 <script>
 	var off=true;
-	$(".head_icon").eq(0).click(function(){
-		
+	//点击头部右侧按钮弹出侧边栏---------
+	$(".head_icon").eq(0).click(function(){	
 		$(".aside").css({"display":"block"})
 		.animate({"right":"0"},"slow");
+		$(".motai").css({"display":"block","z-index":"11"})
 	})
+	//点击X收回侧边栏------------------
 	$(".rever").click(function(){
-		
 		$(".aside").animate({"right":"-50vw"},"slow")
-		
+		$(".motai").css("display","none")
+	})
+	//点击莫泰层收回侧边栏-------------
+	$(".motai").click(function(){
+		$(".rever").trigger("click")
+	
 	})
 	
 	//点击按钮(男生，女生，不限)------------------------

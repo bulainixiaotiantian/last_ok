@@ -3,7 +3,7 @@ body,h1,h2,h3,h4,h5,h6,p,ul,li,dl,dd,dt,input{margin:0;padding:0;}
 	a{color:inherit;}
 	input{outline:none;}
 	
-body{font-family:"微软雅黑"; letter-spacing: 0.03rem;}
+body{font-family:"微软雅黑"; letter-spacing: 0.02rem;}
 .head{top:0;position:fixed;width:7.5rem;    z-index: 10; height:45px;background:#8077bd;font-size:0.28rem ;line-height:45px;color:#fff;text-align:center;}
 /*---------main部分--------------*/
 html{font-size:100px}

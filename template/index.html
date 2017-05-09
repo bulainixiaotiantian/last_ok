@@ -1,6 +1,5 @@
 
 	<div class="head">
- 
 		<span class="head_choose">
 			<div id="distance" class="distance">距离</div>
 			
@@ -11,7 +10,7 @@
 		<span id="order"  class="head_icon"><img src="images/home_button_sort_default.png"></span>
 	</div>
 <!---------------侧边筛选栏----------------->
-	
+	<div class="motai"></div>
 	<div class="aside">
 		<div class="rever"><img src="images/home_button_close_default.png"></div>
 		<h3>性别</h3>
@@ -38,14 +37,22 @@
 <script>
 	$(".aside").css({"display":"none"});
 	
+	//点击头部右侧按钮弹出侧边栏-------------
 	$(".head_icon").eq(0).click(function(){
 		$(".aside").css({"display":"block"})
 		.animate({"right":"0px"},"slow");
+		$(".motai").css({"display":"block","z-index":"11"})
 	});
+	//点击X收回侧边栏---------------------
 	$(".rever").click(function(){
 		$(".aside").animate({"right":"-50vw"},"slow");
+		$(".motai").css("display","none")
 	})
+	//点击莫泰层收回侧边栏-------------
+	$(".motai").click(function(){
+		$(".rever").trigger("click")
 	
+	})
 <!----------------以上侧边栏--------------------------->
 		var $p=$(".aside>p").eq(0);
 		var span_1=$p.find("span").eq(0);
@@ -68,8 +75,6 @@
 		click_btn($("#distance"),"#8077bd");
 		click_btn($("#head_price"),"#8077bd");
 		click_btn($("#rank"),"#8077bd");
-
-	
 
 		//aiax请求头像数据--------------------------------------------------------
 			var con="";
