@@ -39,12 +39,13 @@ html{font-size:100px}
 /*--------------首页-侧边栏-----------------------*/
 .aside{ width:3.75rem;
     position:fixed;
+	display:none;
     right:-50vw;
     top: 0;
     height: 100vh;
     z-index: 99;
     background: #34324d;
-	transition:all 0.8s;
+
 	color:#fff;
 	font-size:0.28rem;
 	font-family:"微软雅黑";

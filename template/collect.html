@@ -35,24 +35,20 @@
 </ul>
 
 	<script>	
-	//侧边栏----------------
-	$(".head_icon").eq(0).click(function(){
-		
-		$(".aside").css({"right":"0px"});
-	})
-	$(".rever")[0].addEventListener("touchstart",rever,false)
+
 	
-	function rever(){
-		$(".aside").css({"right":"-50vw"});
-	}
 </script>
 <script>
-		var off=true;
-		$(".head_icon").eq(0).click(function(){
-		$(".aside").css({"right":"0px"});
+	var off=true;
+	$(".head_icon").eq(0).click(function(){
+		
+		$(".aside").css({"display":"block"})
+		.animate({"right":"0"},"slow");
 	})
 	$(".rever").click(function(){
-		$(".aside").css({"right":"-50vw"})
+		
+		$(".aside").animate({"right":"-50vw"},"slow")
+		
 	})
 	
 	//点击按钮(男生，女生，不限)------------------------

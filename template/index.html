@@ -33,21 +33,19 @@
 
 
 <ul class="list-unstyled">
-		<!----------此处用ajax加载------------->
+	<!----------此处用ajax加载------------->
 </ul>
 <script>
-
-	$(".head_icon").eq(0).click(function(){
-		
-		$(".aside").css({"right":"0px"});
-		$(".motai").css("display","block");
-	})
-	$(".rever")[0].addEventListener("touchstart",rever,false)
+	$(".aside").css({"display":"none"});
 	
-	function rever(){
-		$(".aside").css({"right":"-50vw"});
-		
-	}
+	$(".head_icon").eq(0).click(function(){
+		$(".aside").css({"display":"block"})
+		.animate({"right":"0px"},"slow");
+	});
+	$(".rever").click(function(){
+		$(".aside").animate({"right":"-50vw"},"slow");
+	})
+	
 <!----------------以上侧边栏--------------------------->
 		var $p=$(".aside>p").eq(0);
 		var span_1=$p.find("span").eq(0);
@@ -95,6 +93,5 @@
 			})
 </script>
 <style>
-body {
-}
+
 </style>
