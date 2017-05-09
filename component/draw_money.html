@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+  <head>
+	<meta charset="UTF-8" name="viewport" content="width=device-width,user-scalable=no,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0">
+    <title>找导游</title>
+	<link rel="stylesheet" href="../css/bootstrap.css">
+	<link rel="stylesheet" href="../css/style.css">
+	
+  </head>
+	<body>
+		
+		<div id="drew_money">
+			<div class="drew_cont">
+				<input type="text" placeholder="请输入提现金额" value=""/>
+				<span>单位  : 元</span>
+			</div>
+			<p>注: 提现金额仅为100元的倍数</p>
+			<button id="drew_btn">确认提现</button>
+		</div>
+<style>
+body{
+	background: #F5F5F5;
+}
+</style>
+<script src='../js/jquery-3.1.0.js'></script>
+<script src='../js/index.js'></script>	
+<script type="text/javascript">
+
+	$(function(){
+		var $input=$('.drew_cont>input')
+		var $input_val=$input.val();
+
+		$input.on("keyup",function(){
+			if(/^[1-9][0-9]*0{2}$/.test(this.value)){
+				$("#drew_money p").css({"color":"#7c7c7c"});
+				$("#drew_btn").click(function(){
+					$("#drew_money").load("template/wecat_password.html");
+				})
+			}else{
+				$("#drew_money p").css({"color":"red"})
+			}
+
+		})
+	})
+</script>
+
+  </body>
+</html>
+ 

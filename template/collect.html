@@ -1,0 +1,101 @@
+
+ <div class="head">
+	<span class="head_choose">
+		<div id="distance" class="distance">距离</div>
+		<span id="head_price" class='price'>价格</span>
+		<span id="rank" class='rank'>星级</span>
+	</span>
+		<span class="head_icon"><img src="../images/home_button_filter_default.png"></span>
+		<span id="order"  class="head_icon"><img src="../images/home_button_sort_default.png"></span>
+	</div>
+<!---------------gif加载动画----------------->
+
+<!---------------侧边筛选栏----------------->
+	<div class="aside">
+		<div class="rever"><img src="../images/home_button_close_default.png"></div>
+		<h3>性别</h3>
+		<p class="clearfix">
+			<span id="unlimited">不限</span>
+			<span id="girl">女生</span>
+			<span id="boy">男生</span>
+		</p>
+		<h3>城市</h3>
+		<p>
+			<span id='your_location'>广州</span>
+			<img class="location_icon" src="../images/location_03.png">
+		</p>
+		<form>
+			<input id="city" type="text" placeholder="看看其它城市"/><img class="search" src="../images/home_icon_search_default.png">
+			<button class="btn btn-block" id="complete">完成</button>
+		</form>
+	</div>
+<ul class="list-unstyled">
+		<!----------此处用ajax加载------------->
+		
+</ul>
+
+	<script>	
+	//侧边栏----------------
+	$(".head_icon").eq(0).click(function(){
+		
+		$(".aside").css({"right":"0px"});
+	})
+	$(".rever")[0].addEventListener("touchstart",rever,false)
+	
+	function rever(){
+		$(".aside").css({"right":"-50vw"});
+	}
+</script>
+<script>
+		var off=true;
+		$(".head_icon").eq(0).click(function(){
+		$(".aside").css({"right":"0px"});
+	})
+	$(".rever").click(function(){
+		$(".aside").css({"right":"-50vw"})
+	})
+	
+	//点击按钮(男生，女生，不限)------------------------
+	var $p=$(".aside>p").eq(0);
+	var span_1=$p.find("span").eq(0);
+	var span_man=$p.find("span").eq(1);
+	var span_woman=$p.find("span").eq(2);
+	function click_btn(obj,color,status){
+		if(status){
+			obj.click(function(){
+				obj.css({"background":"#fd8f00","color":"#fff"}).siblings().css({"background":color,"color":"#fff"})
+			})
+		}else{
+			obj.click(function(){
+				obj.css({"background":"#fd8f00","color":"#fff"}).siblings().css({"background":color,"color":"#000"})
+			})
+		}
+	};
+		click_btn(span_1,"#464068",true);
+		click_btn(span_man,"#464068",true);
+		click_btn(span_woman,"#464068",true);
+		click_btn($("#distance"),"#8077bd");
+		click_btn($("#head_price"),"#8077bd");
+		click_btn($("#rank"),"#8077bd");
+
+		//aiax请求头像数据--------------------------------------------------------
+		
+			var con="";
+			$("#loading").show(); //gif加载显示
+			 $.get("../static/piclist.json",null,function(data,res){
+			
+				 	var attry=[];
+					if(res=="success"){
+						 $("#loading").hide();
+						console.log("ok");
+						for(var k in data["pic"]){
+							 con+="<li class='list-unstyled'><div><img class='clear' src='../images/piczoom_button_delete_default.png'></div><img src='../imagesc/"+data["pic"][k].img+".jpg'><p>"+data["pic"][k].name+"<span>"+data["pic"][k].age+"</span></p></li>";
+							 attry.push('images/'+data["pic"][k].img+'.jpg');
+						}
+						$(".main ul").append(con);
+						
+						
+					};	
+			})
+			
+</script>

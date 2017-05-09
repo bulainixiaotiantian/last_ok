@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+	<meta charset="UTF-8" name="viewport" content="width=device-width,user-scalable=no,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0">
+    <title>找导游</title>
+	<link rel="stylesheet" href="../css/bootstrap.css">
+	<link rel="stylesheet" href="../css/style.css">
+	
+  </head>
+	<body>
+	<div class="wecat">
+		<div id="choice_type">
+			<div class="type">支付¥100，可加30次微信，拨打30次电话</div>
+			<div class="type">支付¥200，可加70次微信，拨打70次电话</div>
+			<div class="type">支付¥300，可加120次微信，拨打120次电话</div>
+		</div>
+		<a href="wecat_password.html"><button id="affirm_btn">确认支付</button></a>
+	</div>
+	
+	<script src='../js/jquery-3.1.0.js'></script>
+	<script src='../js/index.js'></script>	 
+	<script type="text/javascript">
+
+		
+		//点击选项，切换背景颜色
+		$(".type").each(function(i){
+			$(this).click(function(e){
+				var e=e||event;
+				e.preventdefault;
+				$(this).css("background","#FD8F00").siblings().css("background","#464068 ")
+			})
+		})
+		
+	</script>
+<style>
+body{background:#f5f5f5; padding-top:0.1rem;}
+
+</style>
+	</body>
+</html>
+

@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+  <head>
+	<meta charset="UTF-8" name="viewport" content="width=device-width,user-scalable=no,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0">
+    <title>找导游</title>
+	<link rel="stylesheet" href="css/bootstrap.css">
+	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="css/swiper.min.css">
+	 
+  </head>
+	<body>
+
+	<div id="loading">
+		<img src="images/loading.gif"/>
+	</div>
+   <div class="main">
+
+   </div>
+   
+   <div class='none'></div>
+   <div class="footer">
+		<div>
+			<a href='#'>
+				<span class="img1 img_one"><img src="images/tab_icon_home_default.png"><br></span>
+				<span class="img2 img_one"><img src="images/tab_icon_home_selected.png"><br></span>
+				<span class="text">首页</span>
+			</a>
+		</div>
+		<div>
+			<a href='#'>
+				<span class="img1 img_two"><img src="images/tab_icon_like_default.png"><br></span>
+				<span class="img2 img_two"><img src="images/tab_icon_like_selected.png"><br></span>
+				<span class="text">收藏</span>
+			</a>
+		</div>
+		<div>
+			<a href='#'>
+				<span class="img1 img_three"><img src="images/tab_icon_user_default.png"><br></span>
+				<span class="img2 img_three"><img src="images/tab_icon_user_selected.png"><br></span>
+				<span class="text">我的</span>
+			</a>
+		</div>
+		
+   </div>
+	<script src='js/jquery-3.1.0.js'></script>
+	<script src='js/swiper.min.js'></script>
+	<script src='js/index.js'></script>	 
+    <script>
+	
+   //侧边栏---------------------------------
+ 
+
+		
+	aseid();
+	
+	function aseid(){
+		var $p=$(".aside>p").eq(0);
+		var span_1=$p.find("span").eq(0);
+		var span_man=$p.find("span").eq(1);
+		var span_woman=$p.find("span").eq(2);
+		function click_btn(obj,color,status){
+			if(status){
+				obj.click(function(){
+					obj.css({"background":"#fd8f00","color":"#fff"}).siblings().css({"background":color,"color":"#fff"})
+				})
+			}else{
+				obj.click(function(){
+					obj.css({"background":"#fd8f00","color":"#fff"}).siblings().css({"background":color,"color":"#000"})
+				})
+			}
+		};
+		click_btn(span_1,"#464068",true);
+		click_btn(span_man,"#464068",true);
+		click_btn(span_woman,"#464068",true);
+		click_btn($("#distance"),"#8077bd");
+		click_btn($("#head_price"),"#8077bd");
+		click_btn($("#rank"),"#8077bd");
+
+	};
+   
+	
+   //侧边栏--------结束-------------------------
+	function selected_tabar(num){
+		$(".footer a").eq(num).children(".img1").css("display","none");
+		$(".footer a").eq(num).children(".img2").css("display","block");
+		$(".footer a").eq(num).css("color","#fff")
+	}
+
+	selected_tabar(0);//让第一个tabbar按钮被选中
+	
+	load(".main","template/index.html")//每次刷新都让.main加载index.html这个组件
+	
+	//点击第1个tabbar按钮--------------------
+	$(".footer div a").eq(0).click(function(){
+		load(".main","template/index.html")
+	});
+	//点击第2个tabbar按钮---------------------
+	$(".footer div a").eq(1).click(function(){
+		$(location).attr("href","component/collect.html")
+	});
+	//点击第3个tabbar按钮---------------------
+	$(".footer div a").eq(2).click(function(){
+		$(location).attr("href","component/mine.html")
+	});
+		
+ 
+	function load(modle,url){
+		$.get(url,null,function(data){
+			$("#loading").show();
+			$(modle).html(data)
+			$("#loading").hide();
+		})	
+	};
+	
+	
+			
+   </script>
+  </body>
+</html>
+

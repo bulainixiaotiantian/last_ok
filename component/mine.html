@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+  <head>
+	<meta charset="UTF-8" name="viewport" content="width=device-width,user-scalable=no,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0">
+    <title>找导游</title>
+	<link rel="stylesheet" href="../css/bootstrap.css">
+	<link rel="stylesheet" href="../css/style.css">
+	
+  </head>
+	<body>
+			
+		<div id="mine">
+			<div class="personal_mes">
+				<div id="mes_head">
+					<img src="../images/2.jpg"/>
+				</div>
+				<div class="mes_text">
+					<p id="mes_name">带着微笑的王小思</p>
+					<p id="balance_t">
+						余额 : <span id="balance">¥224</span>
+					</p>
+				</div>
+			</div>
+			<div id="pic" class="clearfix">
+				<img src="../images/15.jpg"/>
+				<img src="../images/11.jpg"/>
+				<img src="../images/13.jpg"/>
+				<img src="../images/17.jpg"/>
+				<img src="../images/user_button_add_default.png">
+			</div>
+			<div id="become_cont">成为导游<span><img src="../images/arrow_06.jpg"/></span></div>
+			<ul class="mine_cont">
+				<li id="add_money">套餐充值<span><img src="../images/arrow_06.jpg"/></span></li>
+				<li id="drew_money_detail">余额提现<span><img src="../images/arrow_06.jpg"/></span></li>
+			</ul>
+		</div>
+		 <div class="footer">
+		<div>
+			<a href='#'>
+				<span class="img1 img_one"><img src="../images/tab_icon_home_default.png"><br></span>
+				<span class="img2 img_one"><img src="../images/tab_icon_home_selected.png"><br></span>
+				<span class="text">首页</span>
+			</a>
+		</div>
+		<div>
+			<a href='#'>
+				<span class="img1 img_two"><img src="../images/tab_icon_like_default.png"><br></span>
+				<span class="img2 img_two"><img src="../images/tab_icon_like_selected.png"><br></span>
+				<span class="text">收藏</span>
+			</a>
+		</div>
+		<div>
+			<a href='#'>
+				<span class="img1 img_three"><img src="../images/tab_icon_user_default.png"><br></span>
+				<span class="img2 img_three"><img src="../images/tab_icon_user_selected.png"><br></span>
+				<span class="text">我的</span>
+			</a>
+		</div>
+		
+   </div>
+	<style>
+	body{
+		background: #F5F5F5;
+	}
+
+
+	</style>
+	<script src='../js/jquery-3.1.0.js'></script>
+	<script src='../js/index.js'></script>	 
+	<script>
+	
+	
+		$("#drew_money_detail").click(function(){		
+			$(location).attr("href","draw_money.html")	
+		})
+		$("#add_money").click(function(){
+
+			$(location).attr("href","choice_type.html")
+			
+		});
+		$("#become_cont").click(function(){
+
+			$(location).attr("href","to_be_guide.html")
+			
+		});
+
+	//tabbar按钮加载--------------------------------------------
+	
+	
+			selected_tabar(2)//让第三个tabbar按钮被选中状态
+			function selected_tabar(num){
+				$(".footer a").eq(num).children(".img1").css("display","none");
+				$(".footer a").eq(num).children(".img2").css("display","block");
+				$(".footer a").eq(num).css("color","#fff")
+			}
+
+			$(".footer div a").eq(0).click(function(){
+				//$(".main").load("template/mine.html");
+				$(location).attr("href","../index.html")
+			});
+			
+			$(".footer div a").eq(1).click(function(){
+				//$(".main").load("template/mine.html");
+				$(location).attr("href","collect.html")
+			});
+			
+			
+			$(".footer div a").eq(2).click(function(){
+				//$(".main").load("template/mine.html");
+				$(location).attr("href","mine.html")
+			});
+				
+			
+		
+	</script>
+	</body>
+</html>
+
+
